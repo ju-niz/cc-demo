@@ -1,0 +1,43 @@
+# templates/index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blue-Green Deployment Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: {% if version == 'blue' %}#e6f2ff{% elif version == 'green' %}#e6ffe6{% else %}#f0f0f0{% endif %};
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: {% if version == 'blue' %}#0066cc{% elif version == 'green' %}#008000{% else %}#333{% endif %};
+        }
+        .version {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: {% if version == 'blue' %}#0066cc{% elif version == 'green' %}#008000{% else %}#666{% endif %};
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Blue-Green Deployment Demo</h1>
+        <p>This page demonstrates a {{ version }} deployment.</p>
+        <div class="version">Version: {{ version }}</div>
+    </div>
+</body>
+</html>
