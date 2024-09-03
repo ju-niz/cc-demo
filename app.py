@@ -1,7 +1,9 @@
 # app.py
 import os
 from flask import Flask, render_template
+from dotenv import load_dotenv
 
+load_dotenv()
 app = Flask(__name__)
 DEPLOYMENT_VERSION = os.environ.get('DEPLOYMENT_VERSION', 'unknown')
 
